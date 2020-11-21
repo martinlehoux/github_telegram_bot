@@ -15,7 +15,7 @@ def handler(event, context):
         event = from_dict(Event, event)
         module = import_module(f"src.actions.{event.action_name}")
         actionClass: Type[Action] = getattr(module, "Action")
-        action = from_dict(actionClass, json.loads(event.body))
+        action = from_dict(actionClass, json.loads(event.body or ""))
 
         bot = telegram.Bot(token=getenv("TELEGRAM_BOT_TOKEN") or "")
         action.handle(bot)

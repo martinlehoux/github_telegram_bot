@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from os import getenv
-from typing import Dict, List
+from typing import Dict, List, Union
 
 from src.models import Label
 
@@ -19,8 +19,8 @@ def get_username(github_username: str) -> str:
 @dataclass
 class Event:
     headers: Dict[str, str]
-    body: str
+    body: Union[str, None]
 
     @property
     def action_name(self):
-        return self.headers["x-github-event"]
+        return self.headers.get("x-github-event", "noop")
