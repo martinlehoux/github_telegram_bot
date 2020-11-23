@@ -31,7 +31,7 @@ class Milestone:
     open_issues: int
     closed_issues: int
     state: Literal["open", "closed"]
-    due_on: str  # TODO datetime
+    due_on: Union[str, None]  # TODO datetime
 
 
 @dataclass
@@ -41,7 +41,7 @@ class Issue:
     user: User
     labels: List[Label]
     state: Literal["open", "closed"]
-    assignee: User
+    assignee: Union[User, None]
     assignees: List[User]
     comments: int
     milestone: Milestone
@@ -64,7 +64,7 @@ class PullRequest:
     updated_at: Union[str, None]  # TODO datetime
     closed_at: Union[str, None]  # TODO datetime
     merged_at: Union[str, None]  # TODO datetime
-    assignee: User
+    assignee: Union[User, None]
     assignees: List[User]
     requested_reviewers: List[User]
     repo: Repository
