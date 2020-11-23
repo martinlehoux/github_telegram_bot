@@ -3,7 +3,7 @@ from typing import Literal
 
 from src.actions.base import Action
 from src.models import PullRequest
-from src.utils import get_username, make_labels
+from src.utils import escape, get_username, make_labels
 
 
 @dataclass
@@ -20,10 +20,10 @@ class Action(Action):
 
     def make_message(self):
         msg = "PR [{}]({}){} was {} by {}".format(
-            self.pull_request.title,
-            self.pull_request.html_url,
+            escape(self.pull_request.title),
+            escape(self.pull_request.html_url),
             make_labels(self.pull_request.labels),
-            self.action,
+            escape(self.action),
             get_username(self.sender.login),
         )
         if self.action == "review_requested":

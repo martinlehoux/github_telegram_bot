@@ -1,3 +1,4 @@
+import re
 from dataclasses import dataclass
 from os import getenv
 from typing import Dict, List, Union
@@ -16,11 +17,5 @@ def get_username(github_username: str) -> str:
     return getenv(github_username, github_username)
 
 
-# @dataclass
-# class Event:
-#     headers: Dict[str, str]
-#     body: Union[str, None]
-
-#     @property
-#     def action_name(self):
-#         return self.headers.get("x-github-event", "noop")
+def escape(string: str) -> str:
+    return string.replace("[", r"\[").replace("]", r"\]").replace("_", r"\_")
