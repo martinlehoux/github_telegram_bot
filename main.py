@@ -1,4 +1,3 @@
-import json
 from importlib import import_module
 from os import getenv
 from typing import Type

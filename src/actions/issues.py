@@ -8,8 +8,10 @@ from src.utils import get_username, make_labels
 
 @dataclass
 class Action(Action):
+    class Meta:
+        enabled_actions = ["opened", "reopened", "closed"]
+
     action: Literal["opened", "reopened", "closed", "edited", "labeled"]
-    enabled_actions = ["opened", "reopened", "closed"]
     issue: Issue
 
     def make_message(self):

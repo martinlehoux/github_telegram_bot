@@ -8,13 +8,15 @@ from src.utils import get_username, make_labels
 
 @dataclass
 class Action(Action):
+    class Meta:
+        enabled_actions = ["opened", "closed", "review_requested"]
+
     action: Literal[
         "opened", "closed", "review_requested", "labeled", "assigned", "synchronize"
     ]
-    enabled_actions = ["opened", "closed", "review_requested"]
     pull_request: PullRequest
     number: int
-    changes: None
+    # changes: None
 
     def make_message(self):
         msg = "PR [{}]({}){} was {} by {}".format(
