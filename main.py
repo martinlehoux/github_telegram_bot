@@ -18,8 +18,8 @@ def handler(request):
         action = from_dict(actionClass, event)
 
         bot = telegram.Bot(token=getenv("TELEGRAM_BOT_TOKEN") or "")
-        action.handle(bot)
-        return ""
+        msg = action.handle(bot)
+        return {"msg": msg}
 
     except (ImportError, AttributeError):
         print(f"Action {action_name} not supported")
