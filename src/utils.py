@@ -14,7 +14,7 @@ def make_labels(labels: List[Label]) -> str:
 
 
 def get_username(github_username: str) -> str:
-    return getenv(github_username, github_username)
+    return escape(getenv(github_username, github_username))
 
 
 def escape(string: str) -> str:
