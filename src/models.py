@@ -67,4 +67,3 @@ class PullRequest:
     assignee: Union[User, None]
     assignees: List[User]
     requested_reviewers: List[User]
-    repo: Repository
