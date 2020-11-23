@@ -4,3 +4,4 @@
 package
 *.pyc
 node_modules
+*.zip
