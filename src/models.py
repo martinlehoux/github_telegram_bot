@@ -44,7 +44,7 @@ class Issue:
     assignee: Union[User, None]
     assignees: List[User]
     comments: int
-    milestone: Milestone
+    milestone: Union[Milestone, None]
     created_at: str
     updated_at: Union[str, None]  # TODO datetime
     closed_at: Union[str, None]  # TODO datetime
@@ -59,7 +59,7 @@ class PullRequest:
     user: User
     body: str
     labels: List[Label]
-    milestone: Milestone
+    milestone: Union[Milestone, None]
     created_at: str  # TODO datetime
     updated_at: Union[str, None]  # TODO datetime
     closed_at: Union[str, None]  # TODO datetime
