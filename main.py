@@ -7,22 +7,22 @@ import telegram
 from dacite import from_dict
 
 from src.actions.base import Action
-from src.utils import Event
 
 
-def handler(event, context):
+def handler(request):
+    event = request.get_json(force=True)
+    action_name = request.headers.get("x-github-event", "noop")
     try:
-        event = from_dict(Event, event)
-        module = import_module(f"src.actions.{event.action_name}")
+        module = import_module(f"src.actions.{action_name}")
         actionClass: Type[Action] = getattr(module, "Action")
-        action = from_dict(actionClass, json.loads(event.body or ""))
+        action = from_dict(actionClass, event)
 
         bot = telegram.Bot(token=getenv("TELEGRAM_BOT_TOKEN") or "")
         action.handle(bot)
         return ""
 
     except (ImportError, AttributeError):
-        print(f"Action {event.action_name} not supported")
+        print(f"Action {action_name} not supported")
         return ""
 
 

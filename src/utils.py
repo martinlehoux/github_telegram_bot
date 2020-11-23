@@ -16,11 +16,11 @@ def get_username(github_username: str) -> str:
     return getenv(github_username, github_username)
 
 
-@dataclass
-class Event:
-    headers: Dict[str, str]
-    body: Union[str, None]
+# @dataclass
+# class Event:
+#     headers: Dict[str, str]
+#     body: Union[str, None]
 
-    @property
-    def action_name(self):
-        return self.headers.get("x-github-event", "noop")
+#     @property
+#     def action_name(self):
+#         return self.headers.get("x-github-event", "noop")
