@@ -54,7 +54,7 @@ class Issue:
 @dataclass
 class PullRequest:
     html_url: str
-    state: Literal["open"]
+    state: Literal["open", "closed"]
     title: str
     user: User
     body: str
