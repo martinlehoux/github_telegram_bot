@@ -2,7 +2,5 @@
 
 ```bash
 poetry export --without-hashes -o requirements.txt
-pip install -r requirements.txt --target ./package
-zip -r function.zip src package
-serverless offline
-```
+
+zip -r gcp.zip src main.py requirements.txt
