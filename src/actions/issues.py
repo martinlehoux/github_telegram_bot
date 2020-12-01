@@ -11,7 +11,9 @@ class Action(Action):
     class Meta:
         enabled_actions = ["opened", "reopened", "closed"]
 
-    action: Literal["opened", "reopened", "closed", "edited", "labeled", "assigned"]
+    action: Literal[
+        "opened", "reopened", "closed", "edited", "labeled", "assigned", "unassigned"
+    ]
     issue: Issue
 
     def make_message(self):
