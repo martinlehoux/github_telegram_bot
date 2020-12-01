@@ -12,7 +12,13 @@ class Action(Action):
         enabled_actions = ["opened", "review_requested"]
 
     action: Literal[
-        "opened", "closed", "review_requested", "labeled", "assigned", "synchronize"
+        "opened",
+        "closed",
+        "review_requested",
+        "labeled",
+        "assigned",
+        "synchronize",
+        "edited",
     ]
     pull_request: PullRequest
     number: int
