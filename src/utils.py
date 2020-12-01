@@ -1,7 +1,5 @@
-import re
-from dataclasses import dataclass
 from os import getenv
-from typing import Dict, List, Union
+from typing import List
 
 from src.models import Label
 
@@ -18,4 +16,8 @@ def get_username(github_username: str) -> str:
 
 
 def escape(string: str) -> str:
-    return string.replace("[", r"\[").replace("]", r"\]").replace("_", r"\_")
+    string = string.replace("[", r"\[")
+    string = string.replace("]", r"\]")
+    string = string.replace("_", r"\_")
+    string = string.replace("-", r"\-")
+    return string
