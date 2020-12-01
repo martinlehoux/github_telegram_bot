@@ -28,7 +28,7 @@ class Action(Action):
         msg = "PR [{}]({}){} was {} by {}".format(
             escape(self.pull_request.title),
             escape(self.pull_request.html_url),
-            make_labels(self.pull_request.labels),
+            escape(make_labels(self.pull_request.labels)),
             escape(self.action),
             get_username(self.sender.login),
         )

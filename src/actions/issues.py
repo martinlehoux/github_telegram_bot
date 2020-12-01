@@ -20,7 +20,7 @@ class Action(Action):
         return "Issue [{}]({}){} was {} by {}".format(
             escape(self.issue.title),
             escape(self.issue.html_url),
-            make_labels(self.issue.labels),
+            escape(make_labels(self.issue.labels)),
             escape(self.action),
             get_username(self.sender.login),
         )
