@@ -9,7 +9,7 @@ from src.utils import escape, get_username, make_labels
 @dataclass
 class Action(Action):
     class Meta:
-        enabled_actions = ["opened", "review_requested"]
+        enabled_actions = ["review_requested"]
 
     action: Literal[
         "opened",
