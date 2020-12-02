@@ -67,3 +67,13 @@ class PullRequest:
     assignee: Union[User, None]
     assignees: List[User]
     requested_reviewers: List[User]
+
+
+@dataclass
+class Review:
+    user: User
+    body: Union[str, None]
+    submitted_at: Union[str, None]
+    state: Literal["commented", "APPROVED", "CHANGES_REQUESTED"]
+    html_url: str
+    pull_request: PullRequest
