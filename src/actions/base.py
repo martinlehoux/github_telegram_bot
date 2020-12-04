@@ -22,6 +22,8 @@ class Action:
     def handle(self, bot: Union[telegram.Bot, None]) -> str:
         if self.action in self.Meta.enabled_actions:
             msg = self.make_message()
+            if not msg:
+                return "no message generated"
             if bot is not None:
                 bot.send_message(
                     chat_id=getenv("TELEGRAM_CHAT_ID"),

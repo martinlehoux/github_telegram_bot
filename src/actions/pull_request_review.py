@@ -16,6 +16,8 @@ class Action(Action):
     review: Review
 
     def make_message(self):
+        if self.review.state == "commented":
+            return ""
         msg = "PR [{}]({}) received a review for {}: {}".format(
             escape(self.pull_request.title),
             escape(self.pull_request.html_url),
