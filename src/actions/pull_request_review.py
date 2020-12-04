@@ -16,10 +16,10 @@ class Action(Action):
     review: Review
 
     def make_message(self):
-        msg = "PR [{}]({}) received a review from {}: {}".format(
+        msg = "PR [{}]({}) received a review for {}: {}".format(
             escape(self.pull_request.title),
             escape(self.pull_request.html_url),
-            get_username(self.sender.login),
-            escape(self.pull_request.state.lower()),
+            get_username(self.pull_request.user.login),
+            escape(self.review.state.lower()),
         )
         return msg
