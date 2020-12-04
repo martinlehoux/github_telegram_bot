@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import Literal
 
-from models import PullRequest, Repository, Review
+from models import PullRequest, Review
 from src.actions.base import Action
 from utils import escape, get_username
 
