@@ -74,6 +74,5 @@ class Review:
     user: User
     body: Union[str, None]
     submitted_at: Union[str, None]
-    state: Literal["commented", "APPROVED", "CHANGES_REQUESTED"]
+    state: Literal["commented", "approved", "changes_requested"]
     html_url: str
-    pull_request: PullRequest
