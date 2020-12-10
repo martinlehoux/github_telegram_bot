@@ -15,8 +15,11 @@ class Action(Action):
         "opened",
         "closed",
         "review_requested",
+        "review_request_removed",
         "labeled",
+        "unlabeled",
         "assigned",
+        "unassigned",
         "synchronize",
         "edited",
     ]
