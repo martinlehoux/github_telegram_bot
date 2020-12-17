@@ -18,7 +18,13 @@ class Action(Action):
     def make_message(self):
         if self.review.state == "commented":
             return ""
-        msg = "PR [{}]({}) received a review for {}: {}\n{}".format(
+        prefix = ""
+        if self.review.state == "approved":
+            prefix = "✅ "
+        if self.review.state == "changes_requested":
+            prefix = "❌ "
+        msg = "{}PR [{}]({}) received a review for {}: {}\n{}".format(
+            prefix,
             escape(self.pull_request.title),
             escape(self.pull_request.html_url),
             get_username(self.pull_request.user.login),
