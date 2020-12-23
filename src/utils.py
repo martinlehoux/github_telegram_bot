@@ -16,7 +16,7 @@ def get_username(github_username: str) -> str:
 
 
 def escape(string: str) -> str:
-    chars = "[]()_-#"
+    chars = "[]()_-#."
     for char in chars:
         string = string.replace(char, rf"\{char}")
     return string
